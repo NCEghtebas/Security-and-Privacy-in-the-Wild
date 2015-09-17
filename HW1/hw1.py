@@ -4,7 +4,6 @@ import csv
 data_file = open("taxi.csv","rb")
 data = csv.reader(data_file,delimiter=",")
 medallions = []
-stored_hashes = []
 index = 0
 
 # hashes to be found
@@ -23,9 +22,9 @@ find_these_hashes= ["618ecd0a76d5658991e14bc6ef0bbced6ade085b152a32853786dd68156
 for row in data:
 	if index!=0:
 		medallions.append(row[0])
-		stored_hashes.append(row[1])
 	index+=1
 
+# found hashes array 
 found= []
 
 # append each computed medallion hash in the 
@@ -38,7 +37,7 @@ for med in medallions:
 # making sure all ten hashes are found
 print len(found)
 
-
+# print hash results
 for m, h1 in found:
 	print "[ {0}, \n {1} ]\n".format( m, h1)
 
