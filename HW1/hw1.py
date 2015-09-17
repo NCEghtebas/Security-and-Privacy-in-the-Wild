@@ -33,8 +33,13 @@ found= []
 for med in medallions:
 	hashed_med = hashlib.sha256(med).hexdigest()
 	if hashed_med in find_these_hashes:
-		found.append((med, hashed_med, find_these_hashes))
+		found.append((med, hashed_med))
 
 # making sure all ten hashes are found
 print len(found)
+
+
+for m, h1 in found:
+	print "[ {0}, \n {1} ]\n".format( m, h1)
+
 
